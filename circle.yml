@@ -7,6 +7,10 @@ dependencies:
     - docker info
     - docker build -t litesteam/echo-api:$CIRCLE_SHA1 .
 
+test:
+  override:
+    - "true"
+
 deployment:
   hub:
     branch: master
