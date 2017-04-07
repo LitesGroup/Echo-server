@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t litesteam/echo-api:$CIRCLE_SHA1 .
+    - docker build -t litesteam/echo-api:${CIRCLE_SHA1:0:6} .
 
 test:
   override:
