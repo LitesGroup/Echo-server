@@ -11,10 +11,14 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use(bodyParser.raw());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
 app.use(bodyParser.json());
 
 app.post('/echo', function (req, res) {
-  res.json(req.body);
+  res.set(req.headers)
+  res.send(req.body);
 });
 
 app.all('/echo/param/:id', function (req, res) {
